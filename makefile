@@ -8,4 +8,4 @@ a.out: pde.cpp
 	c++ pde.cpp
 
 clean:
-	rm ejercicio5.dat pde.png a.out
+	rm evolve_A.dat evolve_A.png evolve_B.dat evolve_B.png evolve_C.dat evolve_C.png evolve_D.dat evolve_D.png a.out

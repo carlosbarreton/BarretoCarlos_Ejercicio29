@@ -3,24 +3,38 @@
 
 using namespace std;
 
+void resolver(int Nxx, int Ntt, string archivo);
+
 int main() {
 	
+	int n = 442;
+	resolver(30, n, "evolve_A.dat");
+	resolver(31, n, "evolve_B.dat");
+	resolver(29, n, "evolve_C.dat");
+	resolver(29, n-10, "evolve_D.dat");
+
+	return 0;
+}
+
+void resolver(int Nxx, int Ntt, string archivo){
 	int D = 1;
 	int s = 1;
-	int Nx = 30;
+	int Nx = Nxx;
+	int Nt = Ntt;
+	// Ntc = 450 para Nx = 30
 	float t_actual = 0.0;
 	float t_fin = 1.0;
 	float x_izq = -1.0;
 	float x_der = 1.0;
 	float chi_izq = 0.0;
 	float chi_der = 0.0;
-	float delta_t = 0.001;
+	float delta_t = (t_fin-t_actual)/Nt;
 	float delta_x = (x_der-x_izq)/Nx;
 	float chi_n[Nx];
 	float chi_n_plus_1[Nx];
 
 	ofstream outfile;
-	outfile.open("ejercicio5.dat");
+	outfile.open(archivo);
 
 	// Este for establece la condicion inicial
 	for(int i=0; i < Nx; i++){
@@ -52,6 +66,4 @@ int main() {
 		t_actual += delta_t;
 	}
 	outfile.close();
-
-	return 0;
 }
